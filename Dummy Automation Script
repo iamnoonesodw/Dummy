@@ -39,17 +39,24 @@ if ip then
 end
 
 print([[                
-          .-"      "-.
-         /            \
-        |              |
-        |,  .-.  .-.  ,|
-        | )(_o/  \o_)( |
-        |/     /\     \|
-        (_     ^^     _)
-         \__|IIIIII|__/
-          | \IIIIII/ |
-          \          /
-           `--------`
+         / \
+        |   |
+        |---|
+        |   |
+        |   |
+      _ |=-=| _
+  _  / \|   |/ \
+ / \|   |   |   ||\
+|   |   |   |   | \>
+|   |   |   |   |   \
+| -   -   -   - |)   )
+|                   /
+ \                 /
+  \               /
+   \             /
+    \           /
+
 ]])
+
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/iamnoonesodw/Dummy/refs/heads/main/Test"))()
